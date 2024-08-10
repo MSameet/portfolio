@@ -1,0 +1,17 @@
+[
+  {
+    "name": "github",
+    "link": "https://github.com/MSameet",
+    "image": "/assets/svgs/github.svg"
+  },
+  {
+    "name": "linkedin",
+    "link": "https://www.linkedin.com/in/muhammad-sameet-ul-hassan",
+    "image": "/assets/svgs/linkedin.svg"
+  },
+  {
+    "name": "fiverr",
+    "link": "https://www.fiverr.com/muhammad_sameet",
+    "image": "/assets/svgs/fiverr.svg"
+  }
+]
