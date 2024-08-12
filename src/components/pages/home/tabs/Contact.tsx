@@ -25,7 +25,7 @@ export const Contact = () => {
               <div>
                 <p className="font-bold md:text-2xl text-lg">Call Me</p>
                 <p className="text-[#888] md:text-lg text-md">
-                  +92 300 9167129
+                  +92 316 4702146
                 </p>
               </div>
             </div>
@@ -42,9 +42,9 @@ export const Contact = () => {
                 <p className="font-bold md:text-2xl text-lg">Email</p>
                 <a
                   className="text-[#888] md:text-lg text-md"
-                  href="mailto:zunairkhursheed97@gmail.com"
+                  href="mailto:muhammadsameetulhassan43@gmail.com"
                 >
-                  zunairkhursheed97@gmail.com
+                  muhammadsameetulhassan43@gmail.com
                 </a>
               </div>
             </div>
@@ -60,7 +60,7 @@ export const Contact = () => {
               <div>
                 <p className="font-bold md:text-2xl text-lg">Address</p>
                 <p className="text-[#888] md:text-lg text-md">
-                  Khayaban-e-amin lahore
+                  Green Town, lahore
                 </p>
               </div>
             </div>

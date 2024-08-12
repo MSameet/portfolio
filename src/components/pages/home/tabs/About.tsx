@@ -37,13 +37,18 @@ export const About = () => {
           Passionate Developer crafting cutting-edge digital experiences
         </p>
         <p className="text-lg text-secondary">
-          Experienced MERN Stack Developer with over 5 years of expertise in
-          HTML5, CSS3, JavaScript, React.js, Node.js, Express.js, and Next.js.
-          Demonstrated success in responsive design, cross-browser
-          compatibility, and performance optimization. Enthusiastic about
-          staying current with emerging technologies, including Web 3.0, to
-          continuously enhance development practices and deliver cutting-edge
-          solutions.
+          I am a dedicated React.js developer with over 3 years of experience in
+          building user-friendly and efficient web applications. My work focuses
+          on creating custom websites, especially for e-commerce, that are both
+          visually appealing and easy to use. I have a strong grasp of React.js,
+          along with a solid understanding of JavaScript, HTML, and CSS. I also
+          have experience working with Next.js to develop modern,
+          high-performing web solutions. My goal is always to deliver websites
+          that not only meet the needs of the business but also provide a smooth
+          and enjoyable experience for users. I am passionate about writing
+          clean and maintainable code, and I stay updated with the latest trends
+          in web development. My approach ensures that the websites I build are
+          responsive, accessible, and work well on all devices.
         </p>
       </div>
     </div>
