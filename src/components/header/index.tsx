@@ -1,6 +1,5 @@
 import socialLink from "@/data/sociallink.json";
 import NextImage from "@/lib/NextImage";
-import Image from "next/image";
 import Link from "next/link";
 
 export const Header = () => {
@@ -25,7 +24,7 @@ export const Header = () => {
           ))}
           <li>
             <a
-              href={"/assets/docs/ZunairKhursheed.pdf"}
+              href={"/assets/docs/MSameet.pdf"}
               className=" px-12 font-bold bg-primary block rounded-lg py-2 text-white"
               download
             >
