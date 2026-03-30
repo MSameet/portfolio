@@ -8,9 +8,8 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import {
   Carousel,
   CarouselContent,
+  CarouselDots,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { projects } from "@/data/projects";
 
@@ -50,7 +49,7 @@ export function ProjectsCarousel() {
       <BlurFade inView delay={0.06} duration={0.55} className="w-full">
         <div
           id="projectsTrack"
-          className="projects-carousel-wrap mx-auto max-w-[1100px] px-10 sm:px-14"
+          className="projects-carousel-wrap"
         >
           <Carousel
             opts={{ align: "start", loop: true }}
@@ -61,7 +60,7 @@ export function ProjectsCarousel() {
               {projects.map((project) => (
                 <CarouselItem
                   key={project.slug}
-                  className="basis-full pl-2 md:pl-4"
+                  className="basis-1/2 pl-2 md:pl-4"
                 >
                   <div className="pb-1 pt-1">
                     <ProjectCard
@@ -73,8 +72,7 @@ export function ProjectsCarousel() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-0 sm:-left-2" />
-            <CarouselNext className="right-0 sm:-right-2" />
+            <CarouselDots className="mt-7" />
           </Carousel>
         </div>
       </BlurFade>

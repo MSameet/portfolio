@@ -3,6 +3,7 @@
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -203,20 +204,7 @@ const CarouselPrevious = React.forwardRef<
       aria-label="Previous slide"
       {...props}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden
-      >
-        <path d="m15 18-6-6 6-6" />
-      </svg>
+      <ChevronLeft width={20} height={20} aria-hidden />
     </button>
   );
 });
@@ -244,29 +232,69 @@ const CarouselNext = React.forwardRef<
       aria-label="Next slide"
       {...props}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden
-      >
-        <path d="m9 18 6-6-6-6" />
-      </svg>
+      <ChevronRight width={20} height={20} aria-hidden />
     </button>
   );
 });
 CarouselNext.displayName = "CarouselNext";
 
+const CarouselDots = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const { api } = useCarousel();
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+
+  const onInit = React.useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setScrollSnaps(carouselApi.scrollSnapList());
+  }, []);
+
+  const onSelect = React.useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setSelectedIndex(carouselApi.selectedScrollSnap());
+  }, []);
+
+  React.useEffect(() => {
+    if (!api) return;
+    onInit(api);
+    onSelect(api);
+    api.on("reInit", onInit);
+    api.on("reInit", onSelect);
+    api.on("select", onSelect);
+    return () => {
+      api.off("reInit", onInit);
+      api.off("reInit", onSelect);
+      api.off("select", onSelect);
+    };
+  }, [api, onInit, onSelect]);
+
+  return (
+    <div ref={ref} className={cn("carousel-dots", className)} {...props}>
+      {scrollSnaps.map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          onClick={() => api?.scrollTo(index)}
+          className={cn(
+            "carousel-dot",
+            index === selectedIndex && "carousel-dot--active"
+          )}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  );
+});
+CarouselDots.displayName = "CarouselDots";
+
 export {
   Carousel,
   CarouselContent,
+  CarouselDots,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious, type CarouselApi
+  CarouselPrevious,
+  type CarouselApi
 };
